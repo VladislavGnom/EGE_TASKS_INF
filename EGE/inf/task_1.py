@@ -191,5 +191,5 @@ window.mainloop()
 # ------------------------------------------------------
 
 
-print_beautiful_table(shuffle_data_of_table(array, number_of_cycles=4))
+# print_beautiful_table(shuffle_data_of_table(array, number_of_cycles=4))
 
