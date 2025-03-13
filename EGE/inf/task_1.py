@@ -10,7 +10,7 @@ def check_table_cell(cell: str) -> bool:
     return 1
 
 
-def create_help_table_form_array(arr) -> Tuple[Tuple[int, int]]:
+def create_help_table_from_array(arr: list) -> Tuple[Tuple[int, int]]:
     '''return tuple with tuples where first num is index of element in the table,
        second num is value by this index
     '''
@@ -32,7 +32,7 @@ def create_help_table_form_array(arr) -> Tuple[Tuple[int, int]]:
 
     return tuple(res)
 
-def normilize_table(arr, help_arr, line_indx1, line_indx2):
+def normilize_table(arr: list, help_arr: Tuple[Tuple[int, int]], line_indx1: int, line_indx2: int) -> list[list]:
     new_arr = arr.copy()
     line1, line2 = help_arr[line_indx1], help_arr[line_indx2]
 
@@ -55,13 +55,13 @@ def normilize_table(arr, help_arr, line_indx1, line_indx2):
     return new_arr
 
 
-def shuffle_data_of_table(arr, number_of_cycles=1) -> list[list]:
+def shuffle_data_of_table(arr: list, number_of_cycles: int=1) -> list[list]:
     new_array = arr.copy()
     processed_lines_by_indexes = []
     pos = 0
     
     for _ in range(number_of_cycles):
-        help_arr = create_help_table_form_array(new_array)    # create help table
+        help_arr = create_help_table_from_array(new_array)    # create help table
 
         for i in range(1, len(arr)):
             cur = help_arr[pos]
@@ -72,7 +72,7 @@ def shuffle_data_of_table(arr, number_of_cycles=1) -> list[list]:
             indx_arr_line = [el[0] for el in arr_line]
             if indx_arr_line.count(pos) > 0: continue    # check second cond
 
-            if pos == i: continue    # clear self values
+            if pos == i: continue    # clear self(repeating) values
 
             if pos in processed_lines_by_indexes: continue    # keep unique lines
 
@@ -85,7 +85,7 @@ def shuffle_data_of_table(arr, number_of_cycles=1) -> list[list]:
     return new_array
 
 
-def print_beautiful_table(arr):
+def print_beautiful_table(arr: list) -> None:
     for row in arr:
         print(row)
 
