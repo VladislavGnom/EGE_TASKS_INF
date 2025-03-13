@@ -1,36 +1,3 @@
-# import matplotlib.pyplot as plt
-# import networkx as nx
-
-# node_color=['black']
-
-# G = nx.Graph()  # создаём объект графа
-
-# # определяем список узлов (ID узлов)
-# nodes = [1, 2, 3, 4, 5]
-
-# # определяем список рёбер
-# # список кортежей, каждый из которых представляет ребро
-# # кортеж (id_1, id_2) означает, что узлы id_1 и id_2 соединены ребром
-# edges = [('a', 'b', 10), ('c', 'd', 10), ('c', 'a', 10)]
-
-# # добавляем информацию в объект графа
-# # G.add_nodes_from(nodes)
-# G.add_weighted_edges_from(edges)
-
-# # Позиции узлов (Spring Layout - автоматически расставляет)
-# pos = nx.spring_layout(G, seed=10000)
-
-# # рисуем граф и отображаем его
-# nx.draw(G, with_labels=False, font_weight='bold', node_color=node_color, node_size=10)
-
-
-# # Добавляем подписи рядом с вершинами (смещаем их вверх)
-# labels = {node: node for node in G.nodes()}
-# nx.draw_networkx_labels(G, pos, labels, font_size=12, font_color="black", verticalalignment='center')
-
-# plt.show()
-
-# new code
 from typing import Tuple
 
 
@@ -67,7 +34,6 @@ def create_help_table_form_array(arr) -> Tuple[Tuple[int, int]]:
 
 def normilize_table(arr, help_arr, line_indx1, line_indx2):
     new_arr = arr.copy()
-    # new_arr = [[0 for _ in range(7)] for _ in range(7)]
     line1, line2 = help_arr[line_indx1], help_arr[line_indx2]
 
     for indx1, num1 in line1:
@@ -115,18 +81,6 @@ def shuffle_data_of_table(arr, number_of_cycles=1) -> list[list]:
             new_array = normilize_table(new_array, help_arr, pos, i)
             break
         pos += 1
-
-        
-    
-    # for y, row in enumerate(help_arr):
-    #     next_position = y + 1
-    #     is_true = True
-    #     for el in row:
-    #         index_of_element, value = el
-    #         if index_of_element == next_position: 
-    #             is_true = False
-    #             break
-
 
     return new_array
 
