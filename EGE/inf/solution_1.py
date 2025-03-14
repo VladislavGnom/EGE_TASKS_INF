@@ -26,22 +26,3 @@ def create_str_table_for_solution(array):
 
     table = table[:-1]    # delete end space
     return table
-
-# array = [
-#     ['*', '13', '', '', '', '2', ''],
-#     ['13', '*', '', '30', '', '', '8'],
-#     ['', '', '*', '3', '21', '5', ''],
-#     ['', '30', '3', '*', '', '', '39'],
-#     ['', '', '21', '', '*', '', '53'],
-#     ['2', '', '5', '', '', '*', ''],
-#     ['', '8', '', '39', '53', '', '*'],
-# ]
-
-# table = '12 16 21 24 27 34 35 36 42 43 47 53 57 61 63 72 74 75'
-# graph = 'bd db de ed ea ae ca ac gc cg bg gb gf fg cf fc fe ef'
-# letters_in_graph = 'abcdefg'
-
-# result = get_solution(table, graph, letters_in_graph)
-# print(get_answer(array, result, 'c', 'f'))
-# print(get_answer(array, result, 'a', 'e'))
-    
