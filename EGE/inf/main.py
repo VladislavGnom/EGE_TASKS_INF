@@ -41,7 +41,7 @@ for _ in range(NUMBER_OF_VARIANTS):
     variant.append(answer)
     # get_answer(result_array, result, 'c', 'f')
     # get_answer(result_array, result, 'a', 'e')
-    print_beautiful_table(result_array)
+    # print_beautiful_table(result_array)
     output.append(variant)
 
 # print_beautiful_table(output)
