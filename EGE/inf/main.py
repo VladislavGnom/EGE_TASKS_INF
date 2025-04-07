@@ -4,17 +4,37 @@ from copy import deepcopy
 from solution_1 import get_solution, get_answer, create_str_table_for_solution
 from task_1 import shuffle_data_of_table, print_beautiful_table, replace_numbers_in_table
 
-NUMBER_OF_VARIANTS = 25
+NUMBER_OF_VARIANTS = 1
 
-ARRAY = [
-    ['*', '13', '', '', '', '2', ''],
-    ['13', '*', '', '30', '', '', '8'],
-    ['', '', '*', '3', '21', '5', ''],
-    ['', '30', '3', '*', '', '', '39'],
-    ['', '', '21', '', '*', '', '53'],
-    ['2', '', '5', '', '', '*', ''],
-    ['', '8', '', '39', '53', '', '*'],
-]
+# fill ARRAY
+def create_symmetric_array():
+    n = int(input("Введите размер таблицы (количество узлов): "))
+
+    array = [["" for _ in range(n)] for _ in range(n)]
+
+    for i in range(n):
+        array[i][i] = "*"
+
+    print("Введите значения для верхней треугольной части таблицы (вводите построчно):")
+    for i in range(n):
+        for j in range(i + 1, n):
+            val = input(f"Введите значение для [{i}][{j}]: ")
+
+            if not val.isnumeric(): val = ''
+
+            array[i][j] = val
+            # fill symmetric value
+            array[j][i] = val
+    
+    print("\nРезультирующая симметричная таблица:")
+    for row in array:
+        print(row)
+
+    print()
+
+    return array    
+
+ARRAY = create_symmetric_array()
 
 graph = 'bd db de ed ea ae ca ac gc cg bg gb gf fg cf fc fe ef'
 letters_in_graph = 'abcdefg'
