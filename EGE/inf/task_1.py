@@ -1,11 +1,5 @@
-import tkinter as tk
-
 from random import randint
 from typing import Tuple
-from tkinter import *
-from tkinter import messagebox
-from tkinter.scrolledtext import ScrolledText
-
 
 def check_table_cell(cell: str) -> bool:
     '''
@@ -64,28 +58,6 @@ def normilize_table(arr: list, help_arr: Tuple[Tuple[int, int]], line_indx1: int
 def shuffle_data_of_table(arr: list=None, number_of_cycles: int=1) -> list[list]:
     """Перемешивает переданный симметричный относительно оси массив, сохраняя связи"""
     
-    is_from_gui = False
-    if arr is None:
-        is_from_gui = True
-
-        try:
-            arr = eval(source_table_tf.get('1.0', END))
-        except Exception as error:
-            result.delete('1.0', END)
-            result.insert(END, 'Ошибка! Это неверная таблица!')
-            return 
-        
-        try:
-            count_of_cycles = int(check_number_of_cycle_var.get())
-            number_of_cycles = count_of_cycles if isinstance(count_of_cycles, int) else number_of_cycles
-
-            if not(1 <= number_of_cycles <= len(arr)): 
-                raise Exception('Ошибка! Число лежит в неподдерживаемом диапазоне')
-        except Exception as error:
-            result.delete('1.0', END)
-            result.insert(END, 'Ошибка! Неверное число!')
-            return 
-
     new_array = arr.copy()
     processed_lines_by_indexes = []
     pos = 0
@@ -110,13 +82,6 @@ def shuffle_data_of_table(arr: list=None, number_of_cycles: int=1) -> list[list]
             new_array = normilize_table(new_array, help_arr, pos, i)
             break
         pos += 1
-
-    if is_from_gui:
-        result.delete('1.0', END)
-        result.insert(END, '[\n')
-        for row in new_array:
-            result.insert(END, f"{' ' * 4}{[row[i] for i in range(len(row))]}\n")
-        result.insert(END, ']')
 
     formatted_arr = []
 
@@ -145,14 +110,11 @@ def check_condition_for_numbers_in_table(arr: list):
             if not check_table_cell(col): continue
 
             numbers_count[col] = numbers_count.get(col, 0) + 1
-    # print(f'{numbers_count=}')
-    # print_beautiful_table(arr)
     return numbers_count
 
 def replace_numbers_in_table(arr, min_num=1, max_num=100):
     new_arr = arr.copy()
     numbers_replace = {}
-    # print(check_condition_for_numbers_in_table(new_arr))
 
     for y, row in enumerate(new_arr):
         for x, col in enumerate(row):
@@ -162,7 +124,6 @@ def replace_numbers_in_table(arr, min_num=1, max_num=100):
                 rand_num = str(randint(min_num, max_num))
 
                 while not(check_condition_for_numbers_in_table(new_arr).get(rand_num, 0) == 0):
-                    # print(check_condition_for_numbers_in_table(new_arr).get(rand_num, 0))
                     rand_num = str(randint(min_num, max_num))
 
                 numbers_replace[col] = rand_num

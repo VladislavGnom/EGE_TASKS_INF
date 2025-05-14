@@ -7,7 +7,7 @@ from copy import deepcopy
 from solution_1 import get_solution, get_answer, create_str_table_for_solution
 from task_1 import shuffle_data_of_table, print_beautiful_table, replace_numbers_in_table
 
-NUMBER_OF_VARIANTS = 1    # количество вариантов задания
+NUMBER_OF_VARIANTS = 10    # количество вариантов задания
 GRAPH = 'bd db de ed ea ae ca ac gc cg bg gb gf fg cf fc fe ef'    # все связи с таблицы
 LETTERS_IN_GRAPH = 'abcdefg'    # все названия пунктов(каждый пункт - одна буква)
 
