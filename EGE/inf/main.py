@@ -8,8 +8,8 @@ from solution_1 import get_solution, get_answer, create_str_table_for_solution
 from task_1 import shuffle_data_of_table, print_beautiful_table, replace_numbers_in_table
 
 NUMBER_OF_VARIANTS = 10    # количество вариантов задания
-GRAPH = 'bd db de ed ea ae ca ac gc cg bg gb gf fg cf fc fe ef'    # все связи с таблицы
-LETTERS_IN_GRAPH = 'abcdefg'    # все названия пунктов(каждый пункт - одна буква)
+GRAPH = 'ев ве вб бв гб бг ба аб да ад дв вд ед де'    # все связи с таблицы
+LETTERS_IN_GRAPH = 'абвгде'    # все названия пунктов(каждый пункт - одна буква)
 
 ARRAY_GLOBAL = []
 
@@ -31,10 +31,10 @@ def main():
         result_array, formatted_arr = shuffle_data_of_table(new_array, number_of_cycles=number_of_cycles)    # create new updated array
 
         table = create_str_table_for_solution(result_array)    # create new help table
-        result = get_solution(table, GRAPH, LETTERS_IN_GRAPH)    # get result of task
+        result = get_solution(table, GRAPH, LETTERS_IN_GRAPH, to_point=len(new_array) + 1)    # get result of task
 
         # ----------- VALIDATE ANSWER BLOCK --------------------
-        answer = get_answer(result_array, result, 'c', 'f') + get_answer(result_array, result, 'a', 'e')
+        answer = get_answer(result_array, result, 'б', 'в') + get_answer(result_array, result, 'е', 'д')
         
         # ----------- END VALIDATE ANSWER BLOCK -----------
 
