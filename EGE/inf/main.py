@@ -1,4 +1,3 @@
-
 import threading
 import tkinter as tk
 from tkinter import ttk
@@ -10,36 +9,6 @@ from task_1 import shuffle_data_of_table, print_beautiful_table, replace_numbers
 
 NUMBER_OF_VARIANTS = 1
 ARRAY_GLOBAL = []
-
-# -------------- UNACTUAL CODE ----------------------
-# # fill ARRAY
-# def create_symmetric_array():
-#     n = int(input("Введите размер таблицы (количество узлов): "))
-
-#     array = [["" for _ in range(n)] for _ in range(n)]
-
-#     for i in range(n):
-#         array[i][i] = "*"
-
-#     print("Введите значения для верхней треугольной части таблицы (вводите построчно):")
-#     for i in range(n):
-#         for j in range(i + 1, n):
-#             val = input(f"Введите значение для [{i}][{j}]: ")
-
-#             if not val.isnumeric(): val = ''
-
-#             array[i][j] = val
-#             # fill symmetric value
-#             array[j][i] = val
-    
-#     print("\nРезультирующая симметричная таблица:")
-#     for row in array:
-#         print(row)
-
-#     print()
-
-#     return array    
-# ----------------------------------
 
 def main():
     ARRAY = ARRAY_GLOBAL
