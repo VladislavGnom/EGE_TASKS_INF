@@ -7,14 +7,15 @@ from copy import deepcopy
 from solution_1 import get_solution, get_answer, create_str_table_for_solution
 from task_1 import shuffle_data_of_table, print_beautiful_table, replace_numbers_in_table
 
-NUMBER_OF_VARIANTS = 1
+NUMBER_OF_VARIANTS = 1    # количество вариантов задания
+GRAPH = 'bd db de ed ea ae ca ac gc cg bg gb gf fg cf fc fe ef'    # все связи с таблицы
+LETTERS_IN_GRAPH = 'abcdefg'    # все названия пунктов(каждый пункт - одна буква)
+
 ARRAY_GLOBAL = []
+
 
 def main():
     ARRAY = ARRAY_GLOBAL
-
-    graph = 'bd db de ed ea ae ca ac gc cg bg gb gf fg cf fc fe ef'
-    letters_in_graph = 'abcdefg'
 
     output = []
 
@@ -23,22 +24,22 @@ def main():
 
         new_array = deepcopy(ARRAY)
         new_array = replace_numbers_in_table(new_array, 1, 100)    # change numbers into array
-        number_of_cycles = randint(1, len(new_array))
+        number_of_cycles = randint(1, len(new_array))    # параметр - глубина перемешки
 
         # formatted_arr - for frontend to display
         # result_array - for get answer (array similar with source array)
         result_array, formatted_arr = shuffle_data_of_table(new_array, number_of_cycles=number_of_cycles)    # create new updated array
 
         table = create_str_table_for_solution(result_array)    # create new help table
-        result = get_solution(table, graph, letters_in_graph)    # get result of task
+        result = get_solution(table, GRAPH, LETTERS_IN_GRAPH)    # get result of task
 
+        # ----------- VALIDATE ANSWER BLOCK --------------------
         answer = get_answer(result_array, result, 'c', 'f') + get_answer(result_array, result, 'a', 'e')
+        
+        # ----------- END VALIDATE ANSWER BLOCK -----------
 
-        variant.append(formatted_arr)
+        variant.append(formatted_arr)    
         variant.append(answer)
-        # get_answer(result_array, result, 'c', 'f')
-        # get_answer(result_array, result, 'a', 'e')
-        # print_beautiful_table(result_array)
         output.append(variant)
 
     # print_beautiful_table(output)

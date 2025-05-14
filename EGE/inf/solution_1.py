@@ -11,6 +11,8 @@ def get_solution(table: str, graph: str, letters_in_graph: str):
             return per
         
 def get_answer(arr_table: list, map_iter: list | tuple, from_point, to_point):
+    """Получает длину маршрута из пункта from_point до to_point"""
+    
     indx_start_elem = map_iter.index(from_point)
     indx_end_elem = map_iter.index(to_point)
 

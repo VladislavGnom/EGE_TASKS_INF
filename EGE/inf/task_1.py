@@ -62,6 +62,8 @@ def normilize_table(arr: list, help_arr: Tuple[Tuple[int, int]], line_indx1: int
 
 
 def shuffle_data_of_table(arr: list=None, number_of_cycles: int=1) -> list[list]:
+    """Перемешивает переданный симметричный относительно оси массив, сохраняя связи"""
+    
     is_from_gui = False
     if arr is None:
         is_from_gui = True
