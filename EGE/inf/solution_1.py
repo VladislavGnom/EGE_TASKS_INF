@@ -6,7 +6,6 @@ def get_solution(table: str, graph: str, letters_in_graph: str, from_point=1, to
         new_graph = table
         for i in range(from_point, to_point):
             new_graph = new_graph.replace(str(i), per[i - 1])
-        
         if set(graph.split()) == set(new_graph.split()):
             return per
         
